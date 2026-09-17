@@ -1,0 +1,62 @@
+site_name: 数学知识宇宙
+site_description: 从高中到考研，沿着概念之间的联系理解数学
+site_url: https://caciniep.github.io/Mathematics-Universe/
+repo_url: https://github.com/CacinieP/Mathematics-Universe
+repo_name: CacinieP/Mathematics-Universe
+edit_uri: ''
+docs_dir: .site-docs
+site_dir: site
+strict: true
+copyright: CC BY-SA 4.0 · CacinieP
+theme:
+  name: material
+  language: zh
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换浅色模式
+  features:
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+plugins:
+  - search:
+      lang: [zh, en]
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+extra_javascript:
+  - assets/mathjax-config.js
+  - assets/mathjax/tex-chtml.js
+extra_css:
+  - assets/reading.css
+validation:
+  links:
+    not_found: warn
+    anchors: warn
+hooks:
+  - scripts/hooks.py
