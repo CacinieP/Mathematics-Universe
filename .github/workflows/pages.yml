@@ -41,12 +41,15 @@ jobs:
       - name: Install pinned site dependencies
         working-directory: source
         run: |
-          python -m pip install -r requirements-site.txt
+          python -m pip install -r requirements-site.txt -r requirements-math.txt
           npm ci --ignore-scripts
       - name: Test, prepare, build and check every page
         working-directory: source
         run: |
           python -m unittest discover -s scripts -p 'test_site.py'
+          python -m unittest discover -s scripts -p 'test_wiki.py'
+          python scripts/test_math_core.py
+          python scripts/test_math_exam.py
           python scripts/prepare_site.py --peer ../peer
           python -m mkdocs build --strict
           python scripts/check_site.py

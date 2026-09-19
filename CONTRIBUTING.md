@@ -119,3 +119,30 @@ python -m mkdocs serve
 编辑 Markdown 后需重新运行 `prepare_site.py`。`.site-docs/`、`site/` 和 `node_modules/` 都是生成文件，不提交。数学资源随站点部署，不依赖运行时 CDN。
 
 PR 会运行构建和链接检查；合并到 `main` 后，GitHub Actions 发布到 GitHub Pages。仓库 Pages 的 Source 应设置为 **GitHub Actions**。
+
+
+## GitHub Wiki 同步
+
+Wiki 与在线阅读版都从同一批 Markdown 生成。先在相邻目录分别完成两个站点的准备、严格构建和检查，再运行：
+
+```sh
+python -m unittest discover -s scripts -p 'test_wiki.py'
+python scripts/prepare_wiki.py --peer ../PEER
+```
+
+将 `PEER` 替换为配套仓库目录。输出在 `.wiki-docs/`（不提交主仓库）；包含全文页面、章节导航、页脚及校验清单。发布前须先通过内容审核、公式与链接检查并合并源内容；重新生成 Wiki，使页脚标记正确的源提交。
+
+首次发布须在 GitHub Wiki 网页创建首页，再克隆 `https://github.com/CacinieP/REPO.wiki.git`。将生成的 Markdown 同步到该克隆，检查差异后提交并推送其默认分支。保留 Wiki 自身 `.git` 与历史；校验清单 `.manifest.json` 用于核对页面哈希，不作为正文发布。不要直接维护两套不同正文。
+
+链接与锚点按 Wiki 路由转换，代码示例保持原样。所有页面保留在线阅读入口与 CC BY-SA 4.0 归属信息。修改内容后需要同步两个发布渠道。
+
+
+## 数学复算检查
+
+```sh
+pip install -r requirements-math.txt
+python scripts/test_math_core.py
+python scripts/test_math_exam.py
+```
+
+检查覆盖独立符号运算、数值积分、统计分位数与边界反例；证明和定理前提仍需人工逐项审核。以上检查也在发布前的 CI 中运行。
