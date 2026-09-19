@@ -47,3 +47,5 @@ yarn-error.log*
 # Generated reading site
 .site-docs/
 site/
+
+.wiki-docs/

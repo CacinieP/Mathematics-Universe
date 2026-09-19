@@ -1,6 +1,8 @@
 # 数学知识体系：环环相扣的联系网络
 
-**[在线阅读](https://caciniep.github.io/Mathematics-Universe/)** · [配套读本](https://caciniep.github.io/math-to-deep-learning/) · [构建与贡献](./CONTRIBUTING.md)
+**[在线阅读](https://caciniep.github.io/Mathematics-Universe/)** · [GitHub Wiki](https://github.com/CacinieP/Mathematics-Universe/wiki) · [配套读本](https://caciniep.github.io/math-to-deep-learning/) · [构建与贡献](./CONTRIBUTING.md)
+
+**2026-09-19 严格复核**：知识、题解与 LaTeX 检查结果见[审核报告](./docs/审核报告-2026-09-19.md)。
 
 > 数学不是孤立定理的堆砌，而是一棵从几条根出发、不断分叉又不断融合的生命之树。
 
